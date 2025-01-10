@@ -61,8 +61,8 @@ php artisan serve
 <div align="center">
     <img src="screenshot/dashboard.png" alt="Dashboard" width="800"/>
     <p><i>Admin Dashboard</i></p>
-    <img src="screenshot/home.png" alt="Products Page" width="800"/>
-    <p><i>Products Management</i></p>
+    <img src="screenshot/home.png" alt="Home Page" width="800"/>
+    <p><i>Home</i></p>
     <img src="screenshot/products.png" alt="Products Page" width="800"/>
     <p><i>Products Management</i></p>
     <img src="screenshot/checkout.png" alt="Checkout Page" width="800"/>
