@@ -36,17 +36,17 @@ class OrderRelationManager extends RelationManager
                     ->label('Order ID')
                     ->searchable(),
                 Tables\Columns\TextColumn::make('grand_total')
-                    ->money('INR'),
+                    ->money('IDR'),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         'new' => 'info',
                         'processing' => 'warning',
                         'shipped' => 'success',
                         'delivered' => 'success',
                         'cancelled' => 'danger',
                     })
-                    ->icon(fn (string $state): string => match ($state) {
+                    ->icon(fn(string $state): string => match ($state) {
                         'new' => 'heroicon-m-sparkles',
                         'processing' => 'heroicon-m-arrow-path',
                         'shipped' => 'heroicon-m-truck',
@@ -73,7 +73,7 @@ class OrderRelationManager extends RelationManager
             ])
             ->actions([
                 Action::make('View Order')
-                    ->url(fn (Order $record): string => OrderResource::getUrl('view', ['record' => $record]))
+                    ->url(fn(Order $record): string => OrderResource::getUrl('view', ['record' => $record]))
                     ->color('info')
                     ->icon('heroicon-o-eye'),
                 Tables\Actions\DeleteAction::make(),

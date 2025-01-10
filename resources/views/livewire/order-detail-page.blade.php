@@ -169,12 +169,12 @@
                                         <span class="font-semibold">{{$item->product->name}}</span>
                                     </div>
                                 </td>
-                                <td class=" py-4">{{Number::currency($item->unit_amount , 'INR')}}
+                                <td class=" py-4">{{Number::currency($item->unit_amount , 'IDR')}}
                                 </td>
                                 <td class="py-4">
                                     <span class="text-center w-8">{{$item->quantity}}</span>
                                 </td>
-                                <td class="py-4">{{Number::currency($item->total_amount , 'INR')}}</td>
+                                <td class="py-4">{{Number::currency($item->total_amount , 'IDR')}}</td>
                             </tr>
                             @endforeach
                             <!--[if ENDBLOCK]><![endif]-->
@@ -202,20 +202,20 @@
                     <h2 class="text-lg font-semibold mb-4">Summary</h2>
                     <div class="flex justify-between mb-2">
                         <span>Subtotal</span>
-                        <span>{{Number::currency($order->grand_total , 'INR')}}</span>
+                        <span>{{Number::currency($order->grand_total , 'IDR')}}</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Taxes</span>
-                        <span>{{Number::currency(0, 'INR')}}</span>
+                        <span>{{Number::currency(0, 'IDR')}}</span>
                     </div>
                     <div class="flex justify-between mb-2">
                         <span>Shipping</span>
-                        <span>{{Number::currency(0, 'INR')}}</span>
+                        <span>{{Number::currency(0, 'IDR')}}</span>
                     </div>
                     <hr class="my-2">
                     <div class="flex justify-between mb-2">
                         <span class="font-semibold">Grand Total</span>
-                        <span class="font-semibold">{{Number::currency($order->grand_total , 'INR')}}</span>
+                        <span class="font-semibold">{{Number::currency($order->grand_total , 'IDR')}}</span>
                     </div>
 
                 </div>

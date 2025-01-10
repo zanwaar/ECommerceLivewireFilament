@@ -13,7 +13,7 @@ use Livewire\Attributes\Url;
 use Livewire\Component;
 use Livewire\WithPagination;
 
-#[Title('Product - DcodeMania')]
+#[Title('Product - BatukelDev')]
 class ProductsPage extends Component
 {
     use LivewireAlert;

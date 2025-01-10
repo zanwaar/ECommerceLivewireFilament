@@ -42,7 +42,7 @@ class ProductResource extends Resource
                             ->required()
                             ->maxLength(255)
                             ->live(onBlur: true)
-                            ->afterStateUpdated(fn (string $operation, $state, Set $set) =>  $operation === 'edit' || $operation === 'create' ? $set('slug', Str::slug($state)) : null),
+                            ->afterStateUpdated(fn(string $operation, $state, Set $set) =>  $operation === 'edit' || $operation === 'create' ? $set('slug', Str::slug($state)) : null),
                         TextInput::make('slug')
                             ->maxLength(255)
                             ->disabled()
@@ -66,7 +66,7 @@ class ProductResource extends Resource
                     Section::make('Price')->schema([
                         TextInput::make('price')
                             ->numeric()
-                            ->prefix('INR')
+                            ->prefix('IDR')
                             ->required(),
                     ]),
                     Section::make('Associations')->schema([

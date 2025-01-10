@@ -13,14 +13,14 @@ class OrderStats extends BaseWidget
     {
         $total = Order::query()->avg('grand_total');
         if (!$total) {
-        $total = 0;
+            $total = 0;
         }
         return [
             Stat::make('New Orders', Order::query()->where('status', 'new')->count()),
             Stat::make('New Processing', Order::query()->where('status', 'processing')->count()),
             Stat::make('New Sipped', Order::query()->where('status', 'shipped')->count()),
 
-            Stat::make('Average Price', Number::currency($total, 'INR')),
+            Stat::make('Average Price', Number::currency($total, 'IDR')),
         ];
     }
 }

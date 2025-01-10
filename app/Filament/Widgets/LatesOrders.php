@@ -25,17 +25,17 @@ class LatesOrders extends BaseWidget
                     ->searchable(),
                 Tables\Columns\TextColumn::make('user.name'),
                 Tables\Columns\TextColumn::make('grand_total')
-                    ->money('INR'),
+                    ->money('IDR'),
                 Tables\Columns\TextColumn::make('status')
                     ->badge()
-                    ->color(fn (string $state): string => match ($state) {
+                    ->color(fn(string $state): string => match ($state) {
                         'new' => 'info',
                         'processing' => 'warning',
                         'shipped' => 'success',
                         'delivered' => 'success',
                         'cancelled' => 'danger',
                     })
-                    ->icon(fn (string $state): string => match ($state) {
+                    ->icon(fn(string $state): string => match ($state) {
                         'new' => 'heroicon-m-sparkles',
                         'processing' => 'heroicon-m-arrow-path',
                         'shipped' => 'heroicon-m-truck',
@@ -55,7 +55,7 @@ class LatesOrders extends BaseWidget
                     ->dateTime(),
             ])->actions([
                 Action::make('View Order')
-                    ->url(fn (Order $record): string => OrderResource::getUrl('view', ['record' => $record]))
+                    ->url(fn(Order $record): string => OrderResource::getUrl('view', ['record' => $record]))
                     ->color('info')
                     ->icon('heroicon-o-eye'),
             ]);

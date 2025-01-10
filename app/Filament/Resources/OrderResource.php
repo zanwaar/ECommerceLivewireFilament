@@ -43,7 +43,7 @@ class OrderResource extends Resource
                     Section::make('Product Infomation')->schema([
                         Select::make('user_id')
                             ->label('Custumer')
-                            ->required() 
+                            ->required()
                             ->searchable()
                             ->preload()
                             ->relationship('user', 'name'),
@@ -88,12 +88,12 @@ class OrderResource extends Resource
                             ]),
                         Select::make('currency')
                             ->options([
-                                'inr' => 'INR',
+                                'idr' => 'IDR',
                                 'usd' => 'USD',
                                 'eur' => 'EUR',
                                 'gbp' => 'GBP'
                             ])
-                            ->default('inr')
+                            ->default('idr')
                             ->required(),
                         Select::make('shipping_method')
                             ->options([
@@ -119,8 +119,8 @@ class OrderResource extends Resource
                                     ->disableOptionsWhenSelectedInSiblingRepeaterItems()
                                     ->columnSpan(4)
                                     ->reactive()
-                                    ->afterStateUpdated(fn ($state, Set $set) => $set('unit_amount', Product::find($state)?->price ?? 0))
-                                    ->afterStateUpdated(fn ($state, Set $set) => $set('total_amount', Product::find($state)?->price ?? 0)),
+                                    ->afterStateUpdated(fn($state, Set $set) => $set('unit_amount', Product::find($state)?->price ?? 0))
+                                    ->afterStateUpdated(fn($state, Set $set) => $set('total_amount', Product::find($state)?->price ?? 0)),
 
                                 TextInput::make('quantity')
                                     ->numeric()
@@ -129,7 +129,7 @@ class OrderResource extends Resource
                                     ->minValue(1)
                                     ->columnSpan(2)
                                     ->reactive()
-                                    ->afterStateUpdated(fn ($state, Set $set, Get $get) => $set('total_amount', $state * $get('unit_amount'))),
+                                    ->afterStateUpdated(fn($state, Set $set, Get $get) => $set('total_amount', $state * $get('unit_amount'))),
                                 TextInput::make('unit_amount')
                                     ->numeric()
                                     ->required()
@@ -154,7 +154,7 @@ class OrderResource extends Resource
                                     $total += $get("items.{$key}.total_amount");
                                 }
                                 $set('grand_total', $total);
-                                return Number::currency($total, 'INR');
+                                return Number::currency($total, 'IDR');
                             }),
                         Hidden::make('grand_total')
                             ->default(0)
@@ -175,7 +175,7 @@ class OrderResource extends Resource
                 TextColumn::make('grand_total')
                     ->numeric()
                     ->sortable()
-                    ->money('INR'),
+                    ->money('IDR'),
 
                 TextColumn::make('payment_method')
                     ->sortable()
